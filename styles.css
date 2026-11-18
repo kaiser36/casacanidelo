@@ -1779,17 +1779,25 @@ button, input, select, textarea {
 }
 
 .agent-avatar {
-  width: 60px;
-  height: 60px;
+  width: 68px;
+  height: 68px;
   border-radius: var(--radius-full);
-  background: linear-gradient(135deg, rgba(200, 169, 126, 0.25), rgba(200, 169, 126, 0.08));
+  background: var(--bg-elevated);
   border: 2px solid var(--gold-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gold-primary);
-  font-size: 1.6rem;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(200, 169, 126, 0.25);
   flex-shrink: 0;
+}
+
+.agent-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
 }
 
 .agent-badge {
