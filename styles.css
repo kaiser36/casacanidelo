@@ -1536,6 +1536,11 @@ button, input, select, textarea {
   background-color: #12151b;
 }
 
+/* Filtro elegante dark para manter o design escuro de luxo */
+.property-map .leaflet-tile-pane {
+  filter: brightness(0.7) invert(1) contrast(3) hue-rotate(200deg) saturate(0.35);
+}
+
 .map-badge-overlay {
   position: absolute;
   top: 1.25rem;
