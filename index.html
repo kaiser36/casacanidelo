@@ -485,6 +485,12 @@
           <div class="metric-label">Tipologia Oficial</div>
           <div class="metric-sub">3 Quartos + Anexo Polivalente de 32m²</div>
         </div>
+        <div class="metric-card">
+          <div class="metric-icon"><i class="fa-solid fa-briefcase"></i></div>
+          <div class="metric-value">32 m²</div>
+          <div class="metric-label">Espaço Polivalente</div>
+          <div class="metric-sub">Anexo com WC Independente</div>
+        </div>
       </div>
 
       <!-- Detalhamento por Categorias Arquitetónicas -->
@@ -557,9 +563,11 @@
       <div class="specs-action-banner">
         <div class="action-banner-text">
           <h4>Deseja descarregar o dossier técnico completo?</h4>
-          <p>Inclui plantas esquemáticas, certificado energético DGEG e certidão predial permanente.</p>
+          <p>Inclui plantas esquemáticas da moradia e implantação do lote.</p>
         </div>
-        <button id="download-dossier-btn" class="btn btn-outline"><i class="fa-solid fa-file-pdf"></i> Descarregar Dossier PDF</button>
+        <a id="download-dossier-btn" href="doc/planta.PDF" download="Planta_Casa_Canidelo.pdf" class="btn btn-outline" target="_blank" rel="noopener">
+          <i class="fa-solid fa-file-pdf"></i> Descarregar Dossier PDF
+        </a>
       </div>
 
     </div>
@@ -1020,15 +1028,15 @@
     <div class="container">
       <div class="contact-card-wrapper">
         
-        <!-- Informações do Consultor & Propriedade -->
-        <div class="contact-info-col" style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <!-- Coluna Esquerda: Informações da Visita & Imóvel -->
+        <div class="contact-presentation-col">
           <span class="section-tag">VISITA EXCLUSIVA</span>
           <h2 class="contact-title">Descubra Pessoalmente Esta Moradia Singular</h2>
           <p class="contact-desc">
             As visitas são realizadas em regime de total exclusividade e reserva. Agende uma sessão privada para conhecer os acabamentos, a luz das 4 frentes e a tranquilidade do terreno de 1.679 m².
           </p>
 
-          <div class="contact-meta-list" style="justify-content: center; align-items: center;">
+          <div class="contact-meta-list">
             <div class="meta-item">
               <i class="fa-solid fa-fingerprint"></i>
               <div>
@@ -1050,28 +1058,45 @@
                 <span>1.250.000 €</span>
               </div>
             </div>
-            <div class="meta-item">
-              <i class="fa-solid fa-phone"></i>
-              <div>
-                <strong>Linha Telefónica Direta:</strong>
-                <a href="tel:+351910126982" class="contact-direct-link">+351 910 126 982</a>
-              </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Consultor Responsável & Ação Imediata -->
+        <div class="contact-agent-card">
+          <div class="agent-card-header">
+            <div class="agent-avatar">
+              <i class="fa-solid fa-user-tie"></i>
             </div>
-            <div class="meta-item">
-              <i class="fa-solid fa-envelope"></i>
-              <div>
-                <strong>Email Direto:</strong>
-                <a href="mailto:sergio.oliveira@hrgrupo.pt" class="contact-direct-link">sergio.oliveira@hrgrupo.pt</a>
-              </div>
+            <div class="agent-info">
+              <span class="agent-badge">CONSULTOR DEDICADO</span>
+              <h3 class="agent-name">Sérgio Oliveira</h3>
+              <span class="agent-agency">HR Grupo &bull; Mediação Imobiliária</span>
             </div>
           </div>
 
-          <div class="contact-cta-buttons" style="justify-content: center;">
-            <a href="https://wa.me/351910126982?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Moradia%20T%C3%A9rrea%20T3%20em%20Canidelo%20(ID%2035439797)%20e%20gostaria%20de%20agendar%20uma%20visita." target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+          <div class="agent-contact-channels">
+            <a href="tel:+351910126982" class="agent-channel-item">
+              <div class="channel-icon"><i class="fa-solid fa-phone"></i></div>
+              <div class="channel-text">
+                <small>Linha Telefónica Direta</small>
+                <strong>+351 910 126 982</strong>
+              </div>
+            </a>
+            <a href="mailto:sergio.oliveira@hrgrupo.pt" class="agent-channel-item">
+              <div class="channel-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="channel-text">
+                <small>Email Corporativo</small>
+                <strong>sergio.oliveira@hrgrupo.pt</strong>
+              </div>
+            </a>
+          </div>
+
+          <div class="agent-cta-buttons">
+            <a href="https://wa.me/351910126982?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Moradia%20T%C3%A9rrea%20T3%20em%20Canidelo%20(ID%2035439797)%20e%20gostaria%20de%20agendar%20uma%20visita." target="_blank" rel="noopener" class="btn btn-whatsapp btn-block">
               <i class="fa-brands fa-whatsapp"></i> Conversar por WhatsApp
             </a>
-            <a href="tel:+351910126982" class="btn btn-outline btn-lg">
-              <i class="fa-solid fa-phone"></i> Chamada Direta
+            <a href="tel:+351910126982" class="btn btn-outline btn-block">
+              <i class="fa-solid fa-phone"></i> Chamada Telefónica
             </a>
           </div>
         </div>

@@ -978,12 +978,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const downloadDossierBtn = document.getElementById('download-dossier-btn');
-  if (downloadDossierBtn) {
-    downloadDossierBtn.addEventListener('click', () => {
-      alert("A gerar Dossier Técnico da Moradia Térrea T3 Canidelo (ID: 35439797)...\n\nO documento inclui especificações de engenharia, plantas e certificado energético Classe A.");
-    });
-  }
+  // 9. DOWNLOAD DO DOSSIER TÉCNICO (LINK DIRETO PARA O DOCUMENTO PDF NA PASTA DOC)
 
   /* ========================================================
      10. AMBIENTE SONORO DE LUXO (WEB AUDIO API)
