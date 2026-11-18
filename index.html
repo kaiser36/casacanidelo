@@ -1,0 +1,1201 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Moradia Térrea T3 Independente | Canidelo, Vila Nova de Gaia | 1.250.000 €</title>
+  <meta name="description" content="Exclusiva moradia térrea T3 de 4 frentes com 1.679 m² de lote, piscina exterior aquecida, sala exterior polivalente de 32 m² e classe energética A em Canidelo, Vila Nova de Gaia. Idealista ID: 35439797.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Cormorant Garamond -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Leaflet CSS for Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="loading">
+
+  <!-- PRELOADER DE LUXO -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="preloader-brand">
+        <span class="preloader-subtitle">PROPRIEDADE DE PRESTÍGIO &bull; CANIDELO</span>
+        <h1 class="preloader-title">CASA CANIDELO</h1>
+        <span class="preloader-meta">VILA NOVA DE GAIA &bull; 1.679 M² LOTE</span>
+      </div>
+
+      <div class="preloader-progress-wrap">
+        <div class="preloader-progress-track">
+          <div id="preloader-progress-bar" class="preloader-progress-bar"></div>
+        </div>
+        <div class="preloader-stats">
+          <span id="preloader-status" class="preloader-status">A carregar tour virtual cinematográfico...</span>
+          <span id="preloader-percent" class="preloader-percent">0%</span>
+        </div>
+      </div>
+
+      <div class="preloader-quote">
+        "Onde a luz natural das 4 frentes e a serenidade do Atlântico se encontram."
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVEGAÇÃO DE TOPO FIXA -->
+  <header id="site-nav" class="site-nav">
+    <div class="nav-container">
+      <a href="#hero-scroll" class="nav-logo">
+        <span class="logo-text">CASA CANIDELO</span>
+        <span class="logo-sub">T3 TÉRREA &bull; 4 FRENTES</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#hero-scroll" class="nav-link active">Visita Virtual</a>
+        <a href="#ficha-tecnica" class="nav-link">Ficha Técnica</a>
+        <a href="#sobre" class="nav-link">Sobre</a>
+        <a href="#galeria" class="nav-link">Galeria</a>
+        <a href="#localizacao" class="nav-link">Localização</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Indicador de Preço e CTA -->
+        <div class="nav-price-badge">1.250.000 €</div>
+        <a href="#contacto" class="btn btn-primary btn-sm">Agendar Visita</a>
+
+        <!-- Menu Mobile Hamburger -->
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Menu principal">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Dropdown Mobile -->
+    <div id="mobile-nav" class="mobile-nav">
+      <a href="#hero-scroll" class="mobile-link">Visita Virtual</a>
+      <a href="#ficha-tecnica" class="mobile-link">Ficha Técnica</a>
+      <a href="#sobre" class="mobile-link">Sobre a Propriedade</a>
+      <a href="#galeria" class="mobile-link">Galeria Oficial</a>
+      <a href="#localizacao" class="mobile-link">Localização</a>
+      <a href="#contacto" class="btn btn-primary" style="margin-top: 1rem;">Agendar Visita Privada</a>
+    </div>
+  </header>
+
+  <!-- ======================================================== -->
+  <!-- HERO SCROLLYTELLING SECTION (100VH PINNED COM CANVAS) -->
+  <!-- ======================================================== -->
+  <section id="hero-scroll" class="hero-scroll-container">
+    <div id="hero-sticky" class="hero-sticky">
+
+      <!-- Imagem de Fundo de Segurança (Garante que nunca fica a preto) -->
+      <img id="tour-fallback-img" class="tour-fallback-img" src="frames/transicao_01/frame_001.webp" alt="Moradia Térrea T3 e Lote de 1.679m²" fetchpriority="high">
+
+      <!-- Canvas HTML5 de Alta Performance -->
+      <canvas id="tour-canvas" class="tour-canvas"></canvas>
+
+      <!-- Gradientes Cinematográficos de Iluminação e Contraste -->
+      <div class="canvas-overlay-vignette"></div>
+
+      <!-- Barra de Progresso Global do Tour do Header -->
+      <div class="tour-top-progress">
+        <div id="tour-progress-bar" class="tour-top-bar"></div>
+      </div>
+
+      <!-- Indicador Superior do Tour Virtual -->
+      <div class="tour-hud-top">
+        <div class="hud-counter">
+          <span id="hud-current-index">01</span> / <span>13</span>
+        </div>
+      </div>
+
+      <!-- Mini-Navegador Lateral dos 13 Pontos do Tour (Clicável com nomes discretos) -->
+      <aside class="tour-dots-nav" aria-label="Navegação por divisões do tour">
+        <div class="dots-track">
+          <button class="tour-dot active" data-step="0" title="01. Fachada & Lote de 1.679m²">
+            <span class="dot-num">01</span>
+            <span class="dot-label">Fachada & Terreno</span>
+          </button>
+          <button class="tour-dot" data-step="1" title="02. Sala de Estar (Open Space)">
+            <span class="dot-num">02</span>
+            <span class="dot-label">Sala de Estar</span>
+          </button>
+          <button class="tour-dot" data-step="2" title="03. Sala de Jantar">
+            <span class="dot-num">03</span>
+            <span class="dot-label">Sala de Jantar</span>
+          </button>
+          <button class="tour-dot" data-step="3" title="04. Cozinha Gourmet">
+            <span class="dot-num">04</span>
+            <span class="dot-label">Cozinha Gourmet</span>
+          </button>
+          <button class="tour-dot" data-step="4" title="05. Circulação Interna">
+            <span class="dot-num">05</span>
+            <span class="dot-label">Circulação Interna</span>
+          </button>
+          <button class="tour-dot" data-step="5" title="06. Primeiro Quarto">
+            <span class="dot-num">06</span>
+            <span class="dot-label">Primeiro Quarto</span>
+          </button>
+          <button class="tour-dot" data-step="6" title="07. Casa de Banho de Serviço">
+            <span class="dot-num">07</span>
+            <span class="dot-label">WC de Serviço</span>
+          </button>
+          <button class="tour-dot" data-step="7" title="08. Segundo Quarto Versátil">
+            <span class="dot-num">08</span>
+            <span class="dot-label">Segundo Quarto</span>
+          </button>
+          <button class="tour-dot" data-step="8" title="09. Casa de Banho da Suite">
+            <span class="dot-num">09</span>
+            <span class="dot-label">WC da Suite</span>
+          </button>
+          <button class="tour-dot" data-step="9" title="10. Closet Privativo">
+            <span class="dot-num">10</span>
+            <span class="dot-label">Closet Privativo</span>
+          </button>
+          <button class="tour-dot" data-step="10" title="11. Master Suite">
+            <span class="dot-num">11</span>
+            <span class="dot-label">Master Suite</span>
+          </button>
+          <button class="tour-dot" data-step="11" title="12. Piscina Aquecida & Jardim">
+            <span class="dot-num">12</span>
+            <span class="dot-label">Piscina & Jardim</span>
+          </button>
+          <button class="tour-dot" data-step="12" title="13. Sala Exterior & Anexos">
+            <span class="dot-num">13</span>
+            <span class="dot-label">Sala Exterior</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- ==================================================== -->
+      <!-- OVERLAYS DE TEXTO DINÂMICOS (13 DIVISÕES SINCRONIZADAS) -->
+      <!-- ==================================================== -->
+      <div class="tour-overlays-container">
+
+        <!-- 1. [0% - 8%] FACHADA & LOTE DE 1.679M² -->
+        <article class="tour-card card-right active" data-overlay="0">
+          <div class="card-meta">
+            <span class="step-num">01 / 13</span>
+            <span class="card-tag">EXTERIOR & ENVOLVENTE</span>
+          </div>
+          <h2 class="card-title">Moradia Térrea T3 de 4 Frentes</h2>
+          <p class="card-subtitle">Arquitetura moderna (2023) com exposição solar total em Canidelo.</p>
+          <div class="card-badges">
+            <span class="badge highlight">1.250.000 €</span>
+            <span class="badge">290 m² Bruta</span>
+            <span class="badge">Lote 1.679 m²</span>
+            <span class="badge energy">Classe A</span>
+          </div>
+          <div class="card-features-list">
+            <span><i class="fa-solid fa-compass"></i> Exposição Norte, Sul, Este e Oeste</span>
+            <span><i class="fa-solid fa-shield-halved"></i> Total Privacidade & Calçada Portuguesa</span>
+          </div>
+        </article>
+
+        <!-- 2. [10% - 20%] SALA DE ESTAR (OPEN SPACE) -->
+        <article class="tour-card" data-overlay="1">
+          <div class="card-meta">
+            <span class="step-num">02 / 13</span>
+            <span class="card-tag">ZONA SOCIAL</span>
+          </div>
+          <h2 class="card-title">Sala de Estar Luminosa</h2>
+          <p class="card-subtitle">Conceito amplo com grande entrada de luz natural e ligação direta ao exterior.</p>
+          <div class="card-badges">
+            <span class="badge">Open Space</span>
+            <span class="badge">Parede de Xisto Natural</span>
+            <span class="badge">Lareira com Recuperador</span>
+          </div>
+          <div class="card-features-list">
+            <span><i class="fa-solid fa-sun"></i> Grandes vãos envidraçados rasgados para o jardim</span>
+            <span><i class="fa-solid fa-water-ladder"></i> Vista panorâmica direta para a piscina</span>
+          </div>
+        </article>
+
+        <!-- 3. [20% - 28%] SALA DE JANTAR -->
+        <article class="tour-card" data-overlay="2">
+          <div class="card-meta">
+            <span class="step-num">03 / 13</span>
+            <span class="card-tag">ZONA SOCIAL INTEGRADA</span>
+          </div>
+          <h2 class="card-title">Zona de Refeições Integrada</h2>
+          <p class="card-subtitle">Espaço fluido e acolhedor para momentos em família e socialização.</p>
+          <div class="card-badges">
+            <span class="badge">Conexão Contínua</span>
+            <span class="badge">Iluminação de Design</span>
+            <span class="badge">Janela Panorâmica</span>
+          </div>
+          <div class="card-features-list">
+            <span><i class="fa-solid fa-people-roof"></i> Transição perfeita entre sala de estar e cozinha</span>
+            <span><i class="fa-solid fa-tree"></i> Enquadramento com vegetação exterior</span>
+          </div>
+        </article>
+
+        <!-- 4. [24% - 32%] COZINHA GOURMET -->
+        <article class="tour-card card-right" data-overlay="3">
+          <div class="card-meta">
+            <span class="step-num">04 / 13</span>
+            <span class="card-tag">ZONA SOCIAL & CULINÁRIA</span>
+          </div>
+          <h2 class="card-title">Cozinha Funcional e Equipada</h2>
+          <p class="card-subtitle">Design contemporâneo integrado na zona social da casa.</p>
+          <div class="card-badges">
+            <span class="badge">Totalmente Equipada</span>
+            <span class="badge">Península em Madeira Maciça</span>
+            <span class="badge">Granito Negro</span>
+          </div>
+          <div class="card-features-list">
+            <span><i class="fa-solid fa-utensils"></i> Eletrodomésticos encastrados topo de gama</span>
+            <span><i class="fa-solid fa-store"></i> Armários lacados a branco com grande arrumação</span>
+          </div>
+        </article>
+
+        <!-- 5. [36% - 40%] CORREDOR DE DISTRIBUIÇÃO -->
+        <article class="tour-card" data-overlay="4">
+          <div class="card-meta">
+            <span class="step-num">05 / 13</span>
+            <span class="card-tag">TRANSIÇÃO RESERVADA</span>
+          </div>
+          <h2 class="card-title">Circulação Interna</h2>
+          <p class="card-subtitle">Acesso reservado à zona privada dos quartos.</p>
+          <div class="card-badges">
+            <span class="badge">Privacidade Absoluta</span>
+            <span class="badge">Portas até ao Tecto</span>
+            <span class="badge">Piso Térreo Contínuo</span>
+          </div>
+          <div class="card-features-list">
+            <span><i class="fa-solid fa-wheelchair"></i> Acessibilidade total a mobilidade reduzida</span>
+            <span><i class="fa-solid fa-lightbulb"></i> Focos LED embutidos e domótica</span>
+          </div>
+        </article>
+
+        <!-- 6. [40% - 48%] PRIMEIRO QUARTO -->
+        <article class="tour-card" data-overlay="5">
+          <div class="card-meta">
+            <span class="step-num">06 / 13</span>
+            <span class="card-tag">ALA PRIVADA</span>
+          </div>
+          <h2 class="card-title">Quarto com Armários Embutidos</h2>
+          <p class="card-subtitle">Espaço confortável com excelente iluminação natural.</p>
+          <div class="card-badges">
+            <span class="badge">Armários Embutidos</span>
+            <span class="badge">Vidros Duplos</span>
+            <span class="badge">Acesso ao Jardim</span>
+          </div>
+          <div class="card-features-list">
+            <span><i class="fa-solid fa-door-open"></i> Porta de correr panorâmica com saída direta para o relvado</span>
+            <span><i class="fa-solid fa-temperature-arrow-up"></i> Climatização e estores motorizados</span>
+          </div>
+        </article>
+
+        <!-- 7. [48% - 56%] CASA DE BANHO DE SERVIÇO -->
+        <article class="tour-card" data-overlay="6">
+          <div class="card-meta">
+            <span class="step-num">07 / 13</span>
+            <span class="card-tag">CASAS DE BANHO</span>
+          </div>
+          <h2 class="card-title">Casa de Banho de Serviço</h2>
+          <p class="card-subtitle">Equipada com materiais modernos e acabamentos de qualidade.</p>
+          <div class="card-badges">
+            <span class="badge">Duche Walk-in</span>
+            <span class="badge">Louças Premium</span>
+            <span class="badge">Luz Natural</span>
+          </div>
+          <div class="card-features-list">
+            <span><i class="fa-solid fa-shower"></i> Resguardo em vidro temperado e torneiras embutidas</span>
+            <span><i class="fa-solid fa-wand-magic-sparkles"></i> Revestimentos cerâmicos em tom cinza mineral</span>
+          </div>
+        </article>
+
+        <!-- 8. [56% - 64%] SEGUNDO QUARTO -->
+        <article class="tour-card card-right" data-overlay="7">
+          <div class="card-meta">
+            <span class="step-num">08 / 13</span>
+            <span class="card-tag">ALA PRIVADA</span>
+          </div>
+          <h2 class="card-title">Segundo Quarto Versátil</h2>
+          <p class="card-subtitle">Ambiente funcional, ideal para família, hóspedes ou escritório.</p>
+          <div class="card-badges">
+            <span class="badge">Vista Piscina</span>
+            <span class="badge">Multi-funcional</span>
+            <span class="badge">Luz Sul / Poente</span>
+          </div>
+          <div class="card-features-list">
+            <span><i class="fa-solid fa-bed"></i> Espaço amplo para cama dupla, secretária e arrumação</span>
+            <span><i class="fa-solid fa-water"></i> Acordar com vista panorâmica para a água</span>
+          </div>
+        </article>
+
+        <!-- 9. [63% - 71%] CASA DE BANHO DA SUÍTE -->
+        <article class="tour-card" data-overlay="8">
+          <div class="card-meta">
+            <span class="step-num">09 / 13</span>
+            <span class="card-tag">MASTER SUITE &bull; SPA</span>
+          </div>
+          <h2 class="card-title">Casa de Banho da Suite</h2>
+          <p class="card-subtitle">Com luz natural direta, louças suspensas e acabamentos elegantes.</p>
+          <div class="card-badges">
+            <span class="badge">Pátio Interior Privativo</span>
+            <span class="badge">Lavatório Duplo</span>
+            <span class="badge">Ripas de Madeira</span>
+          </div>
+          <div class="card-features-list">
+            <span><i class="fa-solid fa-sun"></i> Claraboia e pátio ajardinado privativo de luz</span>
+            <span><i class="fa-solid fa-spa"></i> Ambiente requintado com duche de grande formato</span>
+          </div>
+        </article>
+
+        <!-- 10. [71% - 81%] CLOSET DA SUÍTE (AMPLO & ESTÁVEL) -->
+        <article class="tour-card" data-overlay="9">
+          <div class="card-meta">
+            <span class="step-num">10 / 13</span>
+            <span class="card-tag">MASTER SUITE</span>
+          </div>
+          <h2 class="card-title">Closet Privativo</h2>
+          <p class="card-subtitle">Zona dedicada de arrumação à medida com circulação privativa.</p>
+          <div class="card-badges">
+            <span class="badge">Marcenaria Sob Medida</span>
+            <span class="badge">Módulos Otimizados</span>
+            <span class="badge">Janela de Iluminação</span>
+          </div>
+          <div class="card-features-list">
+            <span><i class="fa-solid fa-shirt"></i> Gavetas integradas, varões duplos e sapateiras</span>
+            <span><i class="fa-solid fa-lock"></i> Circulação privativa entre quarto e casa de banho</span>
+          </div>
+        </article>
+
+        <!-- 11. [80% - 90%] QUARTO DA SUÍTE (MASTER BEDROOM) -->
+        <article class="tour-card" data-overlay="10">
+          <div class="card-meta">
+            <span class="step-num">11 / 13</span>
+            <span class="card-tag">MASTER SUITE PRINCIPAL</span>
+          </div>
+          <h2 class="card-title">Quarto da Suite Principal</h2>
+          <p class="card-subtitle">O refúgio de descanso principal com total privacidade e conforto.</p>
+          <div class="card-badges">
+            <span class="badge">Master Suite</span>
+            <span class="badge">Painéis de Madeira Quente</span>
+            <span class="badge">Cabeceira Acolchoada</span>
+          </div>
+          <div class="card-features-list">
+            <span><i class="fa-solid fa-moon"></i> Ambiente silencioso orientado a poente</span>
+            <span><i class="fa-solid fa-eye-slash"></i> Resguardo visual total e cortinas blackout motorizadas</span>
+          </div>
+        </article>
+
+        <!-- 12. [90% - 95.5%] PISCINA AQUECIDA & JARDIM -->
+        <article class="tour-card" data-overlay="11">
+          <div class="card-meta">
+            <span class="step-num">12 / 13</span>
+            <span class="card-tag">EXTERIOR DE LUXO</span>
+          </div>
+          <h2 class="card-title">O Seu Oásis Exterior</h2>
+          <p class="card-subtitle">Piscina com água aquecida, zonas verdes, árvores de fruto e parque infantil.</p>
+          <div class="card-badges">
+            <span class="badge highlight">Piscina Aquecida</span>
+            <span class="badge">Deck em Cerâmica</span>
+            <span class="badge">Árvores de Fruto</span>
+          </div>
+          <div class="card-features-list">
+            <span><i class="fa-solid fa-temperature-high"></i> Bomba de calor e cobertura de piscina</span>
+            <span><i class="fa-solid fa-children"></i> Parque infantil privado e zona relvada sem fim</span>
+          </div>
+        </article>
+
+        <!-- 13. [95% - 100%] SALA EXTERIOR & ANEXOS -->
+        <article class="tour-card" data-overlay="12">
+          <div class="card-meta">
+            <span class="step-num">13 / 13</span>
+            <span class="card-tag">ANEXOS INDEPENDENTES</span>
+          </div>
+          <h2 class="card-title">Espaço Multiusos & Anexos</h2>
+          <p class="card-subtitle">Sala exterior de 32m² (escritório/ginásio), churrasqueira e arrumos.</p>
+          <div class="card-badges">
+            <span class="badge">32 m² com WC Próprio</span>
+            <span class="badge">Churrasqueira</span>
+            <span class="badge">Arrumos</span>
+          </div>
+          <div class="card-features-list">
+            <span><i class="fa-solid fa-briefcase"></i> Perfeito para Home Office independente ou Ginásio</span>
+            <span><i class="fa-solid fa-box-archive"></i> Espaço de arrumos e churrasqueira para convívio</span>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Scroll Hint Inferior -->
+      <div class="tour-scroll-hint">
+        <span id="tour-hint-text" class="hint-text"><i class="fa-solid fa-shoe-prints" style="color:var(--gold-primary);margin-right:6px;transform:rotate(-45deg);"></i> Deslize para caminhar pela moradia</span>
+        <div class="mouse-icon">
+          <span class="mouse-wheel"></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- SECÇÃO 1: FICHA TÉCNICA DETALHADA -->
+  <!-- ======================================================== -->
+  <section id="ficha-tecnica" class="section section-specs">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">CARACTERÍSTICAS OFICIAIS</span>
+        <h2 class="section-title">Ficha Técnica da Propriedade</h2>
+        <p class="section-desc">Dados certificados e auditados para aquisição da moradia (Idealista ID: 35439797).</p>
+      </div>
+
+      <!-- Destaques Numéricos Principais -->
+      <div class="specs-metrics-grid">
+        <div class="metric-card">
+          <div class="metric-icon"><i class="fa-solid fa-tag"></i></div>
+          <div class="metric-value">1.250.000 €</div>
+          <div class="metric-label">Preço de Venda</div>
+          <div class="metric-sub">4.310 € / m² útil</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon"><i class="fa-solid fa-ruler-combined"></i></div>
+          <div class="metric-value">1.679 m²</div>
+          <div class="metric-label">Área do Lote</div>
+          <div class="metric-sub">Terreno vedado com total privacidade</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon"><i class="fa-solid fa-house"></i></div>
+          <div class="metric-value">290 m²</div>
+          <div class="metric-label">Área Bruta de Construção</div>
+          <div class="metric-sub">190 m² de Área Útil Habitacional</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <div class="metric-value">2023</div>
+          <div class="metric-label">Ano de Construção</div>
+          <div class="metric-sub">Estado impecável &bull; Pronta a habitar</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon"><i class="fa-solid fa-leaf"></i></div>
+          <div class="metric-value">Classe A</div>
+          <div class="metric-label">Eficiência Energética</div>
+          <div class="metric-sub">Painéis solares e isolamento capoto</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon"><i class="fa-solid fa-bed"></i></div>
+          <div class="metric-value">T3 + Sala Ext.</div>
+          <div class="metric-label">Tipologia Oficial</div>
+          <div class="metric-sub">3 Quartos + Anexo Polivalente de 32m²</div>
+        </div>
+      </div>
+
+      <!-- Detalhamento por Categorias Arquitetónicas -->
+      <div class="specs-category-grid">
+        
+        <div class="specs-box">
+          <div class="specs-box-header">
+            <i class="fa-solid fa-building-circle-check"></i>
+            <h3>Arquitetura & Estrutura</h3>
+          </div>
+          <ul class="specs-list">
+            <li><strong>Tipo de Moradia:</strong> Térrea, Isolada / Independente (4 frentes)</li>
+            <li><strong>Orientação Solar:</strong> Norte, Sul, Este, Oeste (luz permanente)</li>
+            <li><strong>Ano de Licenciamento:</strong> 2023</li>
+            <li><strong>Pisos:</strong> 1 único piso térreo sem degraus ou desníveis</li>
+            <li><strong>Acessibilidade:</strong> Adaptada a pessoas com mobilidade reduzida</li>
+            <li><strong>Materiais Nobres:</strong> Pedra de xisto, madeira natural e granito</li>
+          </ul>
+        </div>
+
+        <div class="specs-box">
+          <div class="specs-box-header">
+            <i class="fa-solid fa-temperature-three-quarters"></i>
+            <h3>Climatização & Sustentabilidade</h3>
+          </div>
+          <ul class="specs-list">
+            <li><strong>Certificação Energética:</strong> Classe A (Altíssima eficiência)</li>
+            <li><strong>Painéis Solares Térmicos:</strong> Sistema Solius para águas sanitárias</li>
+            <li><strong>Aquecimento da Piscina:</strong> Bomba de calor exterior instalada</li>
+            <li><strong>Lareira:</strong> Recuperador de calor encastrado na parede de xisto</li>
+            <li><strong>Isolamento Térmico:</strong> Sistema ETICS (Capoto) de alta densidade</li>
+            <li><strong>Caixilharia:</strong> Alumínio com corte térmico e vidros duplos acústicos</li>
+          </ul>
+        </div>
+
+        <div class="specs-box">
+          <div class="specs-box-header">
+            <i class="fa-solid fa-tree"></i>
+            <h3>Espaço Exterior & Lazer</h3>
+          </div>
+          <ul class="specs-list">
+            <li><strong>Piscina Aquecida:</strong> Com deck, espreguiçadeiras e cobertura</li>
+            <li><strong>Jardim:</strong> 1.679 m² relvado com árvores de fruto adultas</li>
+            <li><strong>Parque Infantil:</strong> Zona de recreio e trampolim instalados</li>
+            <li><strong>Firepit Lounge:</strong> Área noturna com braseiro exterior e gravilha</li>
+            <li><strong>Refeições Exteriores:</strong> Churrasqueira moderna com bancada de granito</li>
+            <li><strong>Rega:</strong> Sistema automático para toda a área verde</li>
+          </ul>
+        </div>
+
+        <div class="specs-box">
+          <div class="specs-box-header">
+            <i class="fa-solid fa-warehouse"></i>
+            <h3>Anexos, Garagem & Segurança</h3>
+          </div>
+          <ul class="specs-list">
+            <li><strong>Sala Exterior (32 m²):</strong> Com WC privativo (escritório/ginásio)</li>
+            <li><strong>Garagem Box:</strong> Espaço fechado com portão elétrico seccionado</li>
+            <li><strong>Estacionamento:</strong> Lugar no exterior para múltiplas viaturas</li>
+            <li><strong>Arrecadação (Trastero):</strong> Zona fechada de arrumação técnica</li>
+            <li><strong>Segurança:</strong> Porta de segurança, videoporteiro e portões elétricos</li>
+            <li><strong>Localização:</strong> Beco Paniceiro, Canidelo, Vila Nova de Gaia</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Banner de Download da Ficha Técnica -->
+      <div class="specs-action-banner">
+        <div class="action-banner-text">
+          <h4>Deseja descarregar o dossier técnico completo?</h4>
+          <p>Inclui plantas esquemáticas, certificado energético DGEG e certidão predial permanente.</p>
+        </div>
+        <button id="download-dossier-btn" class="btn btn-outline"><i class="fa-solid fa-file-pdf"></i> Descarregar Dossier PDF</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- SECÇÃO 2: SOBRE A PROPRIEDADE (EDITORIAL DE ARQUITETURA) -->
+  <!-- ======================================================== -->
+  <section id="sobre" class="section section-about">
+    <div class="container">
+      <div class="about-editorial-grid">
+        
+        <div class="about-text-col">
+          <span class="section-tag">EDITORIAL ARQUITETÓNICO</span>
+          <h2 class="section-title">O Privilégio Raro de Viver no Térreo com 1.679 m² de Natureza Privada</h2>
+          <p class="about-lead">
+            Num mercado onde a densidade urbana predomina, esta residência em Canidelo desafia a convenção: uma moradia térrea isolada de 4 frentes, concebida de raiz em 2023 para entregar pureza geométrica, circulação sem barreiras e comunhão absoluta com a luz atlântica.
+          </p>
+
+          <div class="about-quote-box">
+            <p>"A casa foi desenhada para que cada janela emoldure uma pintura viva de relvado, céu e água, sem que nenhuma divisão perca o sol ao longo do dia."</p>
+            <span class="quote-author">— Conceito Arquitetónico de 4 Frentes</span>
+          </div>
+
+          <p class="about-body">
+            A entrada faz-se por uma elegante rampa em calçada portuguesa, ladeada por arbustos selecionados, conduzindo à fachada de linhas retas e sóbrias. No interior, a área social desenvolve-se num generoso open space onde sala de estar, jantar e cozinha gourmet convivem em perfeita harmonia, aquecidas pelo recuperador de calor e emolduradas pela parede texturada em pedra de xisto.
+          </p>
+          <p class="about-body">
+            A separação entre o convívio e o descanso é cirúrgica: um corredor privativo preserva a serenidade dos três quartos. A master suite destaca-se pelo seu closet feito à medida e pela sua casa de banho com pátio de luz natural privativo, criando um verdadeiro ritual de bem-estar diário.
+          </p>
+          <p class="about-body">
+            No exterior, os 1.679 m² revelam um santuário de lazer inigualável: a piscina aquecida convida a mergulhos durante todo o ano, rodeada por árvores de fruto maduras, parque infantil para a família e um anexo independente de 32 m² com WC próprio — a solução definitiva para quem exige um gabinete de trabalho isolado ou estúdio de treino pessoal.
+          </p>
+
+          <div class="about-highlights-row">
+            <div class="highlight-item">
+              <span class="highlight-val">4</span>
+              <span class="highlight-lbl">Frentes com Sol Permanente</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-val">32 m²</span>
+              <span class="highlight-lbl">Sala Externa Polivalente</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-val">100%</span>
+              <span class="highlight-lbl">Acessibilidade Sem Barreiras</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-visuals-col">
+          <div class="visual-card-large">
+            <img src="imagens/9.jpeg" alt="Vista aérea do lote de 1.679m² em Canidelo" loading="lazy">
+            <div class="visual-card-caption">
+              <span>Vista Zenital do Lote de 1.679 m²</span>
+              <small>Privacidade absoluta rodeada de verde</small>
+            </div>
+          </div>
+          <div class="visual-card-secondary-grid">
+            <div class="visual-card-small">
+              <img src="imagens/composite.png" alt="Espaço exterior Firepit à noite" loading="lazy">
+              <div class="visual-card-caption">
+                <span>Zona Firepit Noturna</span>
+              </div>
+            </div>
+            <div class="visual-card-small">
+              <img src="imagens/23.jpeg" alt="Piscina iluminada à noite" loading="lazy">
+              <div class="visual-card-caption">
+                <span>Piscina com Iluminação Noturna</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- SECÇÃO 3: GALERIA DE FOTOS OFICIAL COM LIGHTBOX -->
+  <!-- ======================================================== -->
+  <section id="galeria" class="section section-gallery">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">CATÁLOGO FOTOGRÁFICO OFICIAL</span>
+        <h2 class="section-title">Galeria de Alta Resolução</h2>
+        <p class="section-desc">Explore cada ângulo da propriedade através da coleção de fotografias oficiais.</p>
+      </div>
+
+      <!-- Filtros da Galeria -->
+      <div class="gallery-filters" role="tablist">
+        <button class="filter-btn active" data-filter="all">Todas as Fotos</button>
+        <button class="filter-btn" data-filter="exterior">Exterior & Piscina</button>
+        <button class="filter-btn" data-filter="social">Áreas Sociais</button>
+        <button class="filter-btn" data-filter="quartos">Quartos & Suites</button>
+        <button class="filter-btn" data-filter="anexos">Anexos & Garagem</button>
+        <button class="filter-btn" data-filter="noturno">Ambiente Noturno</button>
+      </div>
+
+      <!-- Grelha de Fotografias -->
+      <div class="gallery-grid" id="gallery-grid">
+        
+        <!-- 1. Fachada Principal -->
+        <div class="gallery-item" data-category="exterior" data-index="0">
+          <div class="gallery-img-wrap">
+            <img src="imagens/output-image (1).webp" alt="Fachada principal e entrada da moradia" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-title">Fachada Principal & Entrada</span>
+              <span class="gallery-item-sub">Calçada portuguesa e linhas modernas</span>
+              <i class="fa-solid fa-expand gallery-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Piscina e Relvado (Dia) -->
+        <div class="gallery-item" data-category="exterior" data-index="1">
+          <div class="gallery-img-wrap">
+            <img src="imagens/332829707.webp" alt="Piscina aquecida e jardim ensolarado" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-title">Piscina Aquecida & Deck</span>
+              <span class="gallery-item-sub">Espreguiçadeiras e cadeira suspensa</span>
+              <i class="fa-solid fa-expand gallery-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Sala de Estar e Lareira -->
+        <div class="gallery-item" data-category="social" data-index="2">
+          <div class="gallery-img-wrap">
+            <img src="imagens/21.jpeg" alt="Sala de estar com parede de xisto e lareira" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-title">Sala de Estar com Xisto</span>
+              <span class="gallery-item-sub">Lareira com recuperador de calor</span>
+              <i class="fa-solid fa-expand gallery-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Sala de Estar e Jantar Open Space -->
+        <div class="gallery-item" data-category="social" data-index="3">
+          <div class="gallery-img-wrap">
+            <img src="imagens/22.jpeg" alt="Open Space amplo entre sala e cozinha" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-title">Open Space Amplo</span>
+              <span class="gallery-item-sub">Integração entre estar, jantar e cozinha</span>
+              <i class="fa-solid fa-expand gallery-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Cozinha Gourmet com Ilha -->
+        <div class="gallery-item" data-category="social" data-index="4">
+          <div class="gallery-img-wrap">
+            <img src="imagens/19.jpeg" alt="Cozinha gourmet contemporânea equipada" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-title">Cozinha Gourmet</span>
+              <span class="gallery-item-sub">Bancada em madeira e granito negro</span>
+              <i class="fa-solid fa-expand gallery-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Master Suite -->
+        <div class="gallery-item" data-category="quartos" data-index="5">
+          <div class="gallery-img-wrap">
+            <img src="imagens/1.jpeg" alt="Quarto da master suite principal" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-title">Master Suite Principal</span>
+              <span class="gallery-item-sub">Cabeceira estofada e painel de madeira</span>
+              <i class="fa-solid fa-expand gallery-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Casa de Banho da Suite com Pátio -->
+        <div class="gallery-item" data-category="quartos" data-index="6">
+          <div class="gallery-img-wrap">
+            <img src="imagens/17.jpeg" alt="Casa de banho da suite com pátio de luz privativo" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-title">WC Master Suite</span>
+              <span class="gallery-item-sub">Pátio interior com luz natural direta</span>
+              <i class="fa-solid fa-expand gallery-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Closet da Suite -->
+        <div class="gallery-item" data-category="quartos" data-index="7">
+          <div class="gallery-img-wrap">
+            <img src="imagens/25.jpeg" alt="Closet privativo feito à medida" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-title">Closet Privativo</span>
+              <span class="gallery-item-sub">Marcenaria por medida com luz lateral</span>
+              <i class="fa-solid fa-expand gallery-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Quarto com Vista Jardim -->
+        <div class="gallery-item" data-category="quartos" data-index="8">
+          <div class="gallery-img-wrap">
+            <img src="imagens/14.jpeg" alt="Quarto com saída direta para o relvado e piscina" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-title">Quarto com Vista Jardim</span>
+              <span class="gallery-item-sub">Porta envidraçada panorâmica de correr</span>
+              <i class="fa-solid fa-expand gallery-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. Quarto 2 com Vista Piscina -->
+        <div class="gallery-item" data-category="quartos" data-index="9">
+          <div class="gallery-img-wrap">
+            <img src="imagens/16.jpeg" alt="Segundo quarto com vista para a piscina" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-title">Segundo Quarto Versátil</span>
+              <span class="gallery-item-sub">Acesso direto à piscina e exterior</span>
+              <i class="fa-solid fa-expand gallery-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. Casa de Banho de Apoio -->
+        <div class="gallery-item" data-category="quartos" data-index="10">
+          <div class="gallery-img-wrap">
+            <img src="imagens/15.jpeg" alt="Casa de banho de apoio completa com duche walk-in" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-title">Casa de Banho Completa</span>
+              <span class="gallery-item-sub">Base de duche walk-in e espelho circular</span>
+              <i class="fa-solid fa-expand gallery-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. Sala Exterior de 32m² e Churrasqueira -->
+        <div class="gallery-item" data-category="anexos" data-index="11">
+          <div class="gallery-img-wrap">
+            <img src="imagens/3.jpeg" alt="Sala exterior polivalente de 32m² com churrasqueira" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-title">Anexo Polivalente (32 m²)</span>
+              <span class="gallery-item-sub">Churrasqueira exterior e zona de refeições</span>
+              <i class="fa-solid fa-expand gallery-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13. Interior da Sala Exterior (Escritório) -->
+        <div class="gallery-item" data-category="anexos" data-index="12">
+          <div class="gallery-img-wrap">
+            <img src="imagens/11.jpeg" alt="Interior do anexo com escritório e WC próprio" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-title">Interior do Anexo Multiusos</span>
+              <span class="gallery-item-sub">Escritório executivo / Ginásio com WC</span>
+              <i class="fa-solid fa-expand gallery-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14. Garagem Box Fechada -->
+        <div class="gallery-item" data-category="anexos" data-index="13">
+          <div class="gallery-img-wrap">
+            <img src="imagens/IMG_1524.png" alt="Interior da garagem box fechada" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-title">Garagem Box Fechada</span>
+              <span class="gallery-item-sub">Portão automático e prateleiras de arrumação</span>
+              <i class="fa-solid fa-expand gallery-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15. Piscina Noturna com LEDs -->
+        <div class="gallery-item" data-category="noturno" data-index="14">
+          <div class="gallery-img-wrap">
+            <img src="imagens/23.jpeg" alt="Piscina exterior iluminada à noite com iluminação ambiente" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-title">Piscina Iluminada à Noite</span>
+              <span class="gallery-item-sub">Fitas LED no perímetro e luzes subaquáticas</span>
+              <i class="fa-solid fa-expand gallery-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 16. Moradia e Piscina Noturna -->
+        <div class="gallery-item" data-category="noturno" data-index="15">
+          <div class="gallery-img-wrap">
+            <img src="imagens/24.jpeg" alt="Vista noturna panorâmica da moradia e piscina" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-title">Serenidade Noturna</span>
+              <span class="gallery-item-sub">Fachada envidraçada acolhedora e relvado</span>
+              <i class="fa-solid fa-expand gallery-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 17. Firepit Noturno -->
+        <div class="gallery-item" data-category="noturno" data-index="16">
+          <div class="gallery-img-wrap">
+            <img src="imagens/composite.png" alt="Área de fogueira exterior sob as estrelas" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-title">Firepit Sob as Estrelas</span>
+              <span class="gallery-item-sub">Espaço lounge com cadeiras acapulco e braseiro</span>
+              <i class="fa-solid fa-expand gallery-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 18. Delimitação Oficial do Terreno -->
+        <div class="gallery-item" data-category="exterior" data-index="17">
+          <div class="gallery-img-wrap">
+            <img src="imagens/26.jpeg" alt="Delimitação aérea oficial do terreno de 1.679m²" loading="lazy">
+            <div class="gallery-item-overlay">
+              <span class="gallery-item-title">Delimitação do Lote</span>
+              <span class="gallery-item-sub">Perímetro total dos 1.679 m² do imóvel</span>
+              <i class="fa-solid fa-expand gallery-icon"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX MODAL PARA A GALERIA -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Fechar galeria">&times;</button>
+    <button class="lightbox-nav prev" id="lightbox-prev" aria-label="Foto anterior"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="lightbox-nav next" id="lightbox-next" aria-label="Próxima foto"><i class="fa-solid fa-chevron-right"></i></button>
+
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="Fotografia ampliada">
+      <div class="lightbox-caption">
+        <h4 id="lightbox-title">Título da Fotografia</h4>
+        <p id="lightbox-desc">Subtítulo descritivo</p>
+        <span id="lightbox-counter" class="lightbox-counter">1 / 18</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- SECÇÃO 4: LOCALIZAÇÃO E ENVOLVENTE (CANIDELO, GAIA) -->
+  <!-- ======================================================== -->
+  <section id="localizacao" class="section section-location">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">ENQUADRAMENTO PRIVILEGIADO</span>
+        <h2 class="section-title">Canidelo &bull; Onde a Cidade Encontra o Mar</h2>
+        <p class="section-desc">Morada: Beco Paniceiro, Canidelo, Vila Nova de Gaia, Porto. Serenidade residencial a minutos do centro cosmopolita.</p>
+      </div>
+
+      <div class="location-layout-grid">
+        
+        <!-- Mapa Interativo Personalizado (Leaflet Dark) -->
+        <div class="map-wrapper">
+          <div id="property-map" class="property-map"></div>
+          <div class="map-badge-overlay">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Beco Paniceiro, Canidelo</span>
+          </div>
+        </div>
+
+        <!-- Pontos de Interesse & Tempos de Deslocação -->
+        <div class="location-points-col">
+          <h3 class="location-col-title">Proximidades Estratégicas</h3>
+          
+          <div class="poi-list">
+            
+            <div class="poi-card">
+              <div class="poi-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+              <div class="poi-info">
+                <h4>Praias de Canidelo & Lavadores</h4>
+                <p>Extenso areal atlântico, passadiços à beira-mar e cafés de esplanada.</p>
+              </div>
+              <div class="poi-time">
+                <span class="time-car">4 min</span>
+                <span class="dist">1,8 km</span>
+              </div>
+            </div>
+
+            <div class="poi-card">
+              <div class="poi-icon"><i class="fa-solid fa-feather-pointed"></i></div>
+              <div class="poi-info">
+                <h4>Reserva Natural do Estuário do Douro</h4>
+                <p>Santuário protegido para observação de aves e passeios ribeirinhos.</p>
+              </div>
+              <div class="poi-time">
+                <span class="time-car">6 min</span>
+                <span class="dist">2,5 km</span>
+              </div>
+            </div>
+
+            <div class="poi-card">
+              <div class="poi-icon"><i class="fa-solid fa-ship"></i></div>
+              <div class="poi-info">
+                <h4>Marina do Douro & Afurada</h4>
+                <p>Ponto náutico com gastronomia típica de peixe fresco e ambiente náutico.</p>
+              </div>
+              <div class="poi-time">
+                <span class="time-car">7 min</span>
+                <span class="dist">3,1 km</span>
+              </div>
+            </div>
+
+            <div class="poi-card">
+              <div class="poi-icon"><i class="fa-solid fa-city"></i></div>
+              <div class="poi-info">
+                <h4>Ponte da Arrábida & Centro do Porto</h4>
+                <p>Ligação imediata à cidade do Porto, polo universitário e cultural.</p>
+              </div>
+              <div class="poi-time">
+                <span class="time-car">10 min</span>
+                <span class="dist">5,2 km</span>
+              </div>
+            </div>
+
+            <div class="poi-card">
+              <div class="poi-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+              <div class="poi-info">
+                <h4>Centros Comerciais & Serviços</h4>
+                <p>ArrábidaShopping, GaiaShopping, hipermercados e colégios de prestígio.</p>
+              </div>
+              <div class="poi-time">
+                <span class="time-car">8 min</span>
+                <span class="dist">4,0 km</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="location-travel-note">
+            <i class="fa-solid fa-car-side"></i>
+            <span>Acessos rápidos à A1 (Lisboa/Porto), A28 e VCI, garantindo mobilidade sem esforço.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- SECÇÃO 5: CONTACTO & AGENDAMENTO DE VISITA PRIVADA -->
+  <!-- ======================================================== -->
+  <section id="contacto" class="section section-contact">
+    <div class="container">
+      <div class="contact-card-wrapper">
+        
+        <!-- Informações do Consultor & Propriedade -->
+        <div class="contact-info-col">
+          <span class="section-tag">VISITA EXCLUSIVA</span>
+          <h2 class="contact-title">Descubra Pessoalmente Esta Moradia Singular</h2>
+          <p class="contact-desc">
+            As visitas são realizadas em regime de total exclusividade e reserva. Agende uma sessão privada para conhecer os acabamentos, a luz das 4 frentes e a tranquilidade do terreno de 1.679 m².
+          </p>
+
+          <div class="contact-meta-list">
+            <div class="meta-item">
+              <i class="fa-solid fa-fingerprint"></i>
+              <div>
+                <strong>Referência Oficial:</strong>
+                <span>Idealista ID: 35439797</span>
+              </div>
+            </div>
+            <div class="meta-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <div>
+                <strong>Localização:</strong>
+                <span>Beco Paniceiro, Canidelo, Gaia</span>
+              </div>
+            </div>
+            <div class="meta-item">
+              <i class="fa-solid fa-euro-sign"></i>
+              <div>
+                <strong>Valor Proposto:</strong>
+                <span>1.250.000 €</span>
+              </div>
+            </div>
+            <div class="meta-item">
+              <i class="fa-solid fa-phone"></i>
+              <div>
+                <strong>Linha Telefónica Direta:</strong>
+                <a href="tel:+351912345678" class="contact-direct-link">+351 912 345 678</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-cta-buttons">
+            <a href="https://wa.me/351912345678?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Moradia%20T%C3%A9rrea%20T3%20em%20Canidelo%20(ID%2035439797)%20e%20gostaria%20de%20agendar%20uma%20visita." target="_blank" rel="noopener" class="btn btn-whatsapp">
+              <i class="fa-brands fa-whatsapp"></i> Conversar por WhatsApp
+            </a>
+            <a href="tel:+351912345678" class="btn btn-outline">
+              <i class="fa-solid fa-phone"></i> Chamada Direta
+            </a>
+          </div>
+        </div>
+
+        <!-- Formulário de Agendamento -->
+        <div class="contact-form-col">
+          <form id="contact-form" class="vip-booking-form">
+            <h3 class="form-title">Formulário de Pedido de Visita</h3>
+            <p class="form-sub">Preencha os seus dados para receber o agendamento da visita e o dossiê da moradia.</p>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="form-name">Nome Completo *</label>
+                <input type="text" id="form-name" required placeholder="Ex: Dr. Tiago Silva">
+              </div>
+
+              <div class="form-group">
+                <label for="form-phone">Telefone / WhatsApp *</label>
+                <input type="tel" id="form-phone" required placeholder="+351 912 345 678">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="form-email">Email Corporativo / Pessoal *</label>
+              <input type="email" id="form-email" required placeholder="tiago@exemplo.com">
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="form-date">Data Preferencial</label>
+                <input type="date" id="form-date">
+              </div>
+
+              <div class="form-group">
+                <label for="form-slot">Período de Preferência</label>
+                <select id="form-slot">
+                  <option value="morning">Manhã (10:00 - 13:00)</option>
+                  <option value="afternoon" selected>Tarde (14:30 - 18:00)</option>
+                  <option value="sunset">Final de Tarde / Pôr do Sol (18:00 - 20:00)</option>
+                  <option value="weekend">Sábado / Fim de Semana</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="form-motivation">Objetivo da Aquisição</label>
+              <select id="form-motivation">
+                <option value="hpp">Habitação Própria Permanente da Família</option>
+                <option value="vacation">Segunda Habitação / Refúgio de Férias</option>
+                <option value="invest">Investimento Imobiliário / Patrimonial</option>
+                <option value="relocation">Relocalização Internacional / Golden Visa</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="form-message">Notas Adicionais ou Requisitos Especiais</label>
+              <textarea id="form-message" rows="3" placeholder="Indique eventuais dúvidas sobre a propriedade, visitas virtuais por vídeo ou financiamento..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg">
+              <span>Confirmar Pedido de Visita</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <div class="form-privacy-note">
+              <i class="fa-solid fa-lock"></i>
+              <span>Os seus dados são tratados com sigilo profissional e utilizados exclusivamente para contacto relativo a este imóvel.</span>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL DE CONFIRMAÇÃO DE CONTACTO -->
+  <div id="success-modal" class="success-modal" aria-hidden="true" role="dialog">
+    <div class="success-modal-box">
+      <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+      <h3 class="success-title">Pedido de Visita Registado com Sucesso</h3>
+      <p class="success-msg">
+        Obrigado pelo seu interesse na <strong style="color: var(--gold-accent);">Casa Canidelo</strong>. O consultor sénior responsável entrará em contacto nas próximas horas para confirmar o horário exato da visita.
+      </p>
+      <div class="success-details" id="success-details-preview"></div>
+      <button id="success-modal-close" class="btn btn-primary">Fechar</button>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- FOOTER -->
+  <!-- ======================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-logo">CASA CANIDELO</span>
+          <p class="footer-tagline">Moradia Térrea Independente T3 &bull; Lote 1.679 m² &bull; Piscina Aquecida</p>
+          <span class="footer-ref">Idealista ID: 35439797 &bull; Canidelo, Vila Nova de Gaia</span>
+        </div>
+
+        <div class="footer-nav">
+          <h4>Navegação</h4>
+          <a href="#hero-scroll">Visita Virtual</a>
+          <a href="#ficha-tecnica">Ficha Técnica</a>
+          <a href="#sobre">Conceito Arquitetónico</a>
+          <a href="#galeria">Galeria</a>
+          <a href="#localizacao">Localização</a>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Contacto & Vendas</h4>
+          <p><i class="fa-solid fa-envelope"></i> reservas@canideloresidence.pt</p>
+          <p><i class="fa-solid fa-phone"></i> +351 912 345 678</p>
+          <p><i class="fa-solid fa-location-dot"></i> Beco Paniceiro, Canidelo, Gaia</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Casa Canidelo. Todos os direitos reservados. Apresentação imobiliária de alto padrão.</p>
+        <div class="footer-badges">
+          <span class="footer-badge">Certificado Energético: A</span>
+          <span class="footer-badge">Ano: 2023</span>
+          <span class="footer-badge">4 Frentes</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- SCRIPTS EXTERNOS (GSAP, SCROLLTRIGGER, LEAFLET) -->
+  <!-- ======================================================== -->
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Script Principal da Aplicação -->
+  <script src="script.js"></script>
+</body>
+</html>
+
