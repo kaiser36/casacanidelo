@@ -517,7 +517,7 @@ document.addEventListener('DOMContentLoaded', () => {
           tourProgressBar.style.width = `${progress * 100}%`;
         }
 
-        // Renderização dinâmica no Canvas
+        // Renderização dinâmica no Canvas (garantindo que em progress >= 1.0 mantém o último frame limpo)
         renderCanvasScene(progress);
 
         // Identifica qual das 13 divisões está ativa sincronizada com a câmara
@@ -561,6 +561,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateActiveOverlay(matchedIndex, inTransit, nextStageName, targetDotIdx);
       }
+    });
+
+    // Recalcula alturas e limites quando toda a página e imagens completam carregamento
+    window.addEventListener('load', () => {
+      ScrollTrigger.refresh();
     });
   }
 
