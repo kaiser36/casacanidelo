@@ -1173,10 +1173,26 @@ button, input, select, textarea {
 .about-highlights-row {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 1.25rem;
-  margin-top: 2.5rem;
-  padding-top: 2rem;
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+  padding-top: 2.5rem;
   border-top: 1px solid var(--border-subtle);
+  width: 100%;
+}
+
+.highlight-item {
+  text-align: center;
+  padding: 1.25rem 0.75rem;
+  background: rgba(18, 22, 28, 0.45);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.highlight-item:hover {
+  border-color: var(--border-gold);
+  background: rgba(18, 22, 28, 0.85);
+  transform: translateY(-2px);
 }
 
 .highlight-val {
@@ -1974,6 +1990,11 @@ button, input, select, textarea {
   .about-editorial-grid, .location-layout-grid, .contact-card-wrapper {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+
+  .about-highlights-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
   }
 
   .footer-top {
