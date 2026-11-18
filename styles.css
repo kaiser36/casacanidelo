@@ -1640,9 +1640,9 @@ button, input, select, textarea {
 }
 
 .contact-card-wrapper {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: var(--bg-card);
   border: 1px solid var(--border-gold);
   border-radius: var(--radius-lg);

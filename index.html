@@ -1011,14 +1011,14 @@
       <div class="contact-card-wrapper">
         
         <!-- Informações do Consultor & Propriedade -->
-        <div class="contact-info-col">
+        <div class="contact-info-col" style="max-width: 800px; margin: 0 auto; text-align: center;">
           <span class="section-tag">VISITA EXCLUSIVA</span>
           <h2 class="contact-title">Descubra Pessoalmente Esta Moradia Singular</h2>
           <p class="contact-desc">
             As visitas são realizadas em regime de total exclusividade e reserva. Agende uma sessão privada para conhecer os acabamentos, a luz das 4 frentes e a tranquilidade do terreno de 1.679 m².
           </p>
 
-          <div class="contact-meta-list">
+          <div class="contact-meta-list" style="justify-content: center; align-items: center;">
             <div class="meta-item">
               <i class="fa-solid fa-fingerprint"></i>
               <div>
@@ -1049,99 +1049,19 @@
             </div>
           </div>
 
-          <div class="contact-cta-buttons">
-            <a href="https://wa.me/351912345678?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Moradia%20T%C3%A9rrea%20T3%20em%20Canidelo%20(ID%2035439797)%20e%20gostaria%20de%20agendar%20uma%20visita." target="_blank" rel="noopener" class="btn btn-whatsapp">
+          <div class="contact-cta-buttons" style="justify-content: center;">
+            <a href="https://wa.me/351912345678?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Moradia%20T%C3%A9rrea%20T3%20em%20Canidelo%20(ID%2035439797)%20e%20gostaria%20de%20agendar%20uma%20visita." target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
               <i class="fa-brands fa-whatsapp"></i> Conversar por WhatsApp
             </a>
-            <a href="tel:+351912345678" class="btn btn-outline">
+            <a href="tel:+351912345678" class="btn btn-outline btn-lg">
               <i class="fa-solid fa-phone"></i> Chamada Direta
             </a>
           </div>
         </div>
 
-        <!-- Formulário de Agendamento -->
-        <div class="contact-form-col">
-          <form id="contact-form" class="vip-booking-form">
-            <h3 class="form-title">Formulário de Pedido de Visita</h3>
-            <p class="form-sub">Preencha os seus dados para receber o agendamento da visita e o dossiê da moradia.</p>
-
-            <div class="form-grid">
-              <div class="form-group">
-                <label for="form-name">Nome Completo *</label>
-                <input type="text" id="form-name" required placeholder="Ex: Dr. Tiago Silva">
-              </div>
-
-              <div class="form-group">
-                <label for="form-phone">Telefone / WhatsApp *</label>
-                <input type="tel" id="form-phone" required placeholder="+351 912 345 678">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="form-email">Email Corporativo / Pessoal *</label>
-              <input type="email" id="form-email" required placeholder="tiago@exemplo.com">
-            </div>
-
-            <div class="form-grid">
-              <div class="form-group">
-                <label for="form-date">Data Preferencial</label>
-                <input type="date" id="form-date">
-              </div>
-
-              <div class="form-group">
-                <label for="form-slot">Período de Preferência</label>
-                <select id="form-slot">
-                  <option value="morning">Manhã (10:00 - 13:00)</option>
-                  <option value="afternoon" selected>Tarde (14:30 - 18:00)</option>
-                  <option value="sunset">Final de Tarde / Pôr do Sol (18:00 - 20:00)</option>
-                  <option value="weekend">Sábado / Fim de Semana</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="form-motivation">Objetivo da Aquisição</label>
-              <select id="form-motivation">
-                <option value="hpp">Habitação Própria Permanente da Família</option>
-                <option value="vacation">Segunda Habitação / Refúgio de Férias</option>
-                <option value="invest">Investimento Imobiliário / Patrimonial</option>
-                <option value="relocation">Relocalização Internacional / Golden Visa</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="form-message">Notas Adicionais ou Requisitos Especiais</label>
-              <textarea id="form-message" rows="3" placeholder="Indique eventuais dúvidas sobre a propriedade, visitas virtuais por vídeo ou financiamento..."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-block btn-lg">
-              <span>Confirmar Pedido de Visita</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </button>
-
-            <div class="form-privacy-note">
-              <i class="fa-solid fa-lock"></i>
-              <span>Os seus dados são tratados com sigilo profissional e utilizados exclusivamente para contacto relativo a este imóvel.</span>
-            </div>
-          </form>
-        </div>
-
       </div>
     </div>
   </section>
-
-  <!-- MODAL DE CONFIRMAÇÃO DE CONTACTO -->
-  <div id="success-modal" class="success-modal" aria-hidden="true" role="dialog">
-    <div class="success-modal-box">
-      <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
-      <h3 class="success-title">Pedido de Visita Registado com Sucesso</h3>
-      <p class="success-msg">
-        Obrigado pelo seu interesse na <strong style="color: var(--gold-accent);">Casa Canidelo</strong>. O consultor sénior responsável entrará em contacto nas próximas horas para confirmar o horário exato da visita.
-      </p>
-      <div class="success-details" id="success-details-preview"></div>
-      <button id="success-modal-close" class="btn btn-primary">Fechar</button>
-    </div>
-  </div>
 
   <!-- ======================================================== -->
   <!-- FOOTER -->

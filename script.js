@@ -974,48 +974,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ========================================================
-     9. FORMULÁRIO DE CONTACTO & MODAL DE CONFIRMAÇÃO
-     ======================================================== */
-  const contactForm = document.getElementById('contact-form');
-  const successModal = document.getElementById('success-modal');
-  const successModalClose = document.getElementById('success-modal-close');
-  const successDetailsPreview = document.getElementById('success-details-preview');
-
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById('form-name')?.value || '';
-      const phone = document.getElementById('form-phone')?.value || '';
-      const email = document.getElementById('form-email')?.value || '';
-      const date = document.getElementById('form-date')?.value || 'A combinar';
-      const slotEl = document.getElementById('form-slot');
-      const slot = slotEl ? slotEl.options[slotEl.selectedIndex].text : '';
-      const motEl = document.getElementById('form-motivation');
-      const motivation = motEl ? motEl.options[motEl.selectedIndex].text : '';
-
-      if (successDetailsPreview) {
-        successDetailsPreview.innerHTML = `
-          <strong>Cliente:</strong> ${name} &bull; ${phone}<br>
-          <strong>Email:</strong> ${email}<br>
-          <strong>Data de Visita:</strong> ${date} (${slot})<br>
-          <strong>Finalidade:</strong> ${motivation}<br>
-          <strong>Imóvel:</strong> Canidelo T3 (ID: 35439797)
-        `;
-      }
-
-      if (successModal) successModal.classList.add('active');
-      contactForm.reset();
-    });
-  }
-
-  if (successModalClose && successModal) {
-    successModalClose.addEventListener('click', () => {
-      successModal.classList.remove('active');
-    });
-  }
-
   const downloadDossierBtn = document.getElementById('download-dossier-btn');
   if (downloadDossierBtn) {
     downloadDossierBtn.addEventListener('click', () => {
